@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name]'s Web Builder Portfolio</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 내비게이션 바 */
+        header {
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        nav a.active {
+            color: #007bff;
+            font-weight: 700;
+        }
+
+        /* 하단 내비게이션 */
+        footer nav {
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* 배너 섹션 */
+        .banner {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            padding: 100px 40px;
+            text-align: center;
+            color: #333;
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 메인 콘텐츠 */
+        main {
+            padding: 60px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        /* 스킬 섹션 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .skill-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* 프로젝트 섹션 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-details {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-details h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-details p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .project-tools {
+            font-size: 14px;
+            font-weight: 500;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .view-details {
+            margin-top: auto;
+            color: #007bff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* About Me 섹션 */
+        .about-section {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Contact 섹션 */
+        .contact-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 36px;
+            }
+
+            .banner p {
+                font-size: 16px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About Me</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h1>[Your Name]'s Web Builder Portfolio</h1>
+        <p>Crafting Digital Experiences with Passion</p>
+    </div>
+
+    <main>
+
+        <section id="skills">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="placeholder.png" alt="Adobe Photoshop"> <!-- 실제 파일 경로로 교체 -->
+                    <h3>Adobe Photoshop</h3>
+                    <p>초급 (Beginner)</p>
+                </div>
+                <div class="skill-card">
+                    <img src="placeholder.png" alt="Adobe Illustrator"> <!-- 실제 파일 경로로 교체 -->
+                    <h3>Adobe Illustrator</h3>
+                    <p>초급 (Beginner)</p>
+                </div>
+                <div class="skill-card">
+                    <img src="placeholder.png" alt="Figma"> <!-- 실제 파일 경로로 교체 -->
+                    <h3>Figma</h3>
+                    <p>중급 (Intermediate)</p>
+                </div>
+                <div class="skill-card">
+                    <img src="placeholder.png" alt="Wix"> <!-- 실제 파일 경로로 교체 -->
+                    <h3>Wix</h3>
+                    <p>초급 (Beginner)</p>
+                </div>
+                <div class="skill-card">
+                    <img src="placeholder.png" alt="Framer"> <!-- 실제 파일 경로로 교체 -->
+                    <h3>Framer</h3>
+                    <p>초급 (Beginner)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('placeholder.png');"></div> <!-- 실제 파일 경로로 교체 -->
+                    <div class="project-details">
+                        <h3>E-commerce Website</h3>
+                        <p>E-commerce website is a online store home page, with categories, and product details.</p>
+                        <p class="project-tools">Used Tools: Figma, Framer, Wix</p>
+                        <a href="#" class="view-details">View Details &rarr;</a> <!-- 실제 프로젝트 링크로 교체 -->
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('placeholder.png');"></div> <!-- 실제 파일 경로로 교체 -->
+                    <div class="project-details">
+                        <h3>Creative Agency Landing Page</h3>
+                        <p>Creative Agency landing page agency engaging page, layout and dynamic, creative agency.</p>
+                        <p class="project-tools">Used Tools: Figma, Wix</p>
+                        <a href="#" class="view-details">View Details &rarr;</a> <!-- 실제 프로젝트 링크로 교체 -->
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('placeholder.png');"></div> <!-- 실제 파일 경로로 교체 -->
+                    <div class="project-details">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>Personal Portfolio site is my personal website portfolio, my design journey and details.</p>
+                        <p class="project-tools">Used Tools: Framer, Figma</p>
+                        <a href="#" class="view-details">View Details &rarr;</a> <!-- 실제 프로젝트 링크로 교체 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-section">
+                <div class="profile-photo" style="background-image: url('placeholder.png');"></div> <!-- 실제 파일 경로로 교체 -->
+                <div class="about-text">
+                    <p>[가칭: 이민준]은 사용자 경험을 최우선으로 생각하는 웹 빌더입니다. 디자인과 개발의 경계를 허물며, 창의적이고 효율적인 디지털 경험을 만들어냅니다. 포토샵, 일러스트레이터, Figma를 활용한 디자인부터, Wix와 Framer를 통한 실제 작동하는 웹사이트 구축까지, 디자인 전반을 아우르는 역량을 갖추고 있습니다. 항상 새로운 기술에 도전하며, 사용자와 비즈니스 모두에게 가치를 제공하는 결과물을 지향합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About Me</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </footer>
+
+</body>
+</html>
